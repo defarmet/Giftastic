@@ -1,18 +1,35 @@
+function generate_gif(images) {
+	var gif = $("<img>").addClass("img-fluid img-thumbnail");
+	gif.attr("still", images.original_still.url);
+	gif.attr("webp", images.original.webp);
+	gif.attr("state", "still");
+	gif.attr("src", gif.attr("still"));
+	return gif;
+}
+
+function generate_spacing(num) {
+	var spacing_div = $("<div>").addClass("w-100");
+
+	if (!(num % 4)) {
+		spacing_div.addClass("d-block d-md-block");
+	} else if (!(num % 2)) {
+		spacing_div.addClass("d-block d-md-none");
+	} else {
+		spacing_div.addClass("d-block d-sm-none");
+	}
+
+	return spacing_div;
+}
+
 function display_gifs(response) {
-	var gif_row;
+	var gif_row = $("<div>").addClass("row");
+	$("#gifs").append(gif_row);
 	for (var i = 0; i < response.data.length; i++) {
-		if (!(i % 2)) {
-			gif_row = $("<div>").addClass("row");
-			$("#gifs").append(gif_row);
-		}
-		var gif_div = $("<div>").addClass("col-md-6");
-		var gif = $("<img>");
-		gif.attr("still", response.data[i].images.original_still.url);
-		gif.attr("webp", response.data[i].images.original.webp);
-		gif.attr("state", "still");
-		gif.attr("src", gif.attr("still"));
-		gif_div.append(gif);
+		var gif_div = $("<div>").addClass("col");
+		gif_div.append(generate_gif(response.data[i].images));
+		gif_div.append($("<p>").text(response.data[i].rating));
 		gif_row.append(gif_div);
+		gif_row.append(generate_spacing(i + 1));
 	}
 }
 
