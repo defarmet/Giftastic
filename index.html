@@ -3,12 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Giftastic</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type=text/javascript src="assets/javascript/giphy.js"></script>
 </head>
 
 <body>
@@ -17,8 +15,8 @@
 	<div class="card">
 	<h3 class="card-header">Giphy Search</h3>
 
-	<div class="card-body">
-	<h5 class="card-title">Search for Gifs Here</h5>
+	<div id="header" class="card-body">
+	<h5 class="card-title">Add Gif Topics Here</h5>
 
 	<form>
 	<div class="form-row">
@@ -27,7 +25,7 @@
 	</div>
 	<div class="col-auto">
 		<button id="search" type="submit" class="btn btn-primary">
-		Search
+		Add Topic
 		</button>
 	</div>
 	</div>
@@ -43,5 +41,8 @@
 	<br>
 
 	<div id="gifs" class="container-fluid"></div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type=text/javascript src="assets/javascript/giphy.js"></script>
 </body>
 </html>
