@@ -1,8 +1,16 @@
-var current_topic = "";
+var topic = "";
+
+function capitalize() {
+	var str = topic.split(" ");
+	for (var i = 0; i < str.length; i++) {
+		str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+	}
+	return str.join(" ");
+}
 
 function generate_card() {
 	var card = $("<div>").addClass("card");
-	card.append($("<h5>").addClass("card-header").text(current_topic));
+	card.append($("<h5>").addClass("card-header").text(capitalize()));
 	return card;
 }
 
@@ -23,7 +31,6 @@ function generate_div(data) {
 }
 
 function display_gifs(response) {
-	console.log(response);
 	var gif_row = $("<div>").addClass("card-body scroll");
 	$("#gifs").prepend($("<br>"));
 	$("#gifs").prepend(generate_card().append(gif_row));
@@ -44,10 +51,9 @@ function toggle_animation() {
 
 function display_topic(e) {
 	e.preventDefault();
-	current_topic = $("#query").val().trim();
-	console.log(current_topic);
+	topic = $("#query").val().trim();
 	$.ajax({
-		url: "https://api.giphy.com/v1/gifs/search?api_key=Y489HiM8mmuPI3SU3kkniTTFUTGMj1L2&q=&limit=10&offset=0&lang=en&q=" + current_topic,
+		url: "https://api.giphy.com/v1/gifs/search?api_key=Y489HiM8mmuPI3SU3kkniTTFUTGMj1L2&q=&limit=10&offset=0&lang=en&q=" + topic,
 		method: "GET"
 	}).then(display_gifs);
 }
