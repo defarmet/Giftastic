@@ -9,8 +9,37 @@
 </head>
 
 <body>
-	<div id="gifs" class="container-fluid container-md">
+	<div class="container-fluid">
+
+	<div class="card">
+	<h3 class="card-header">Giphy Search</h3>
+
+	<div class="card-body">
+	<h5 class="card-title">Search for Gifs Here</h5>
+
+	<form>
+	<div class="form-row">
+	<div class="form-group col-auto">
+		<input id="query" type="text" class="form-control">
 	</div>
+	<div class="col-auto">
+		<button id="search" type="submit" class="btn btn-primary">
+		Search
+		</button>
+	</div>
+	</div>
+	</form>
+
+	</div>
+
+	</div>
+
+	</div>
+
+	<br>
+	<br>
+
+	<div id="gifs" class="container-fluid"></div>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type=text/javascript src="assets/javascript/giphy.js"></script>

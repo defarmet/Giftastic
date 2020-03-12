@@ -1,0 +1,19 @@
+img {
+	height: 240px;
+}
+
+.gif {
+	margin: 5px;
+}
+
+.scroll {
+	overflow-x: auto;
+	white-space: nowrap;
+	flex-wrap: nowrap;
+	padding: 0;
+}
+
+.scroll > div {
+	display: inline-block;
+	float: none;
+}
